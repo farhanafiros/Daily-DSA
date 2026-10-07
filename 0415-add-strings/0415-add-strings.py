@@ -1,0 +1,24 @@
+class Solution:
+    def addStrings(self, num1: str, num2: str) -> str:
+    
+        i = len(num1) - 1
+        j = len(num2) - 1
+        carry = 0
+        ans = ""
+
+        while i >= 0 or j >= 0:
+            a = ord(num1[i]) - ord('0') if i >= 0 else 0
+            b = ord(num2[j]) - ord('0') if j >= 0 else 0
+
+            total = a + b + carry
+
+            ans += chr(total % 10 + ord('0'))
+            carry = total // 10
+
+            i -= 1
+            j -= 1
+
+        if carry:
+            ans += chr(carry + ord('0'))
+
+        return ans[::-1]
