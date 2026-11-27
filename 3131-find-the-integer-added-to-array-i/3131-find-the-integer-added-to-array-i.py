@@ -1,11 +1,11 @@
 class Solution:
     def addedInteger(self, nums1: List[int], nums2: List[int]) -> int:
         for i in range(len(nums1)):
-            for j in range(len(nums1) - i - 1):
-                if nums1[j] > nums1[j + 1]:
-                    nums1[j], nums1[j + 1] = nums1[j + 1], nums1[j]
+            for j in range(i + 1, len(nums1)):
+                if nums1[i] > nums1[j]:
+                    nums1[i], nums1[j] = nums1[j], nums1[i]
 
-                if nums2[j] > nums2[j + 1]:
-                    nums2[j], nums2[j + 1] = nums2[j + 1], nums2[j]
+                if nums2[i] > nums2[j]:
+                    nums2[i], nums2[j] = nums2[j], nums2[i]
 
         return nums2[0] - nums1[0]
